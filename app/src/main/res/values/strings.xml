@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MyBMICalc</string>
+    <string name="save">save</string>
+    <string name="height">身長</string>
+    <string name="weight">体重</string>
+    <string name="date">日付</string>
+    <string name="graph_btn">グラフ表示</string>
+</resources>

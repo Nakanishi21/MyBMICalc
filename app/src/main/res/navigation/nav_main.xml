@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.mybmicalc.MainFragment"
+        android:label="MainFragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_createBMIFragment"
+            app:destination="@id/createBMIFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_mainFragment_to_BMIDetailFragment"
+            app:destination="@id/BMIDetailFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_mainFragment_to_weightGraphFragment"
+            app:destination="@id/weightGraphFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createBMIFragment"
+        android:name="com.example.mybmicalc.page.create.CreateBMIFragment"
+        android:label="CreateBMIFragment" />
+    <fragment
+        android:id="@+id/editBMIFragment"
+        android:name="com.example.mybmicalc.page.edit.EditBMIFragment"
+        android:label="EditBMIFragment" >
+        <argument
+            android:name="mybody"
+            app:argType="com.example.mybmicalc.model.body.MyBody" />
+    </fragment>
+    <fragment
+        android:id="@+id/BMIDetailFragment"
+        android:name="com.example.mybmicalc.page.detail.BMIDetailFragment"
+        android:label="BMIDetailFragment" >
+        <action
+            android:id="@+id/action_BMIDetailFragment_to_editBMIFragment"
+            app:destination="@id/editBMIFragment"
+            app:enterAnim="@anim/nav_default_pop_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <argument
+            android:name="mybody"
+            app:argType="com.example.mybmicalc.model.body.MyBody" />
+        <action
+            android:id="@+id/action_BMIDetailFragment_to_confirmDialogFragment"
+            app:destination="@id/confirmDialogFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/confirmDialogFragment"
+        android:name="com.example.mybmicalc.dialog.ConfirmDialogFragment"
+        android:label="ConfirmDialogFragment" />
+    <fragment
+        android:id="@+id/weightGraphFragment"
+        android:name="com.example.mybmicalc.page.weight_graph.WeightGraphFragment"
+        android:label="WeightGraphFragment" />
+</navigation>
