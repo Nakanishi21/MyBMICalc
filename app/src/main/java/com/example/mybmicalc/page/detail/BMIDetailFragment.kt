@@ -18,6 +18,8 @@ import com.example.mybmicalc.model.body.MyBody
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
+import kotlin.math.pow
+import kotlin.math.roundToLong
 
 @AndroidEntryPoint
 class BMIDetailFragment : Fragment(R.layout.bmi_detail_fragment) {
@@ -58,6 +60,9 @@ class BMIDetailFragment : Fragment(R.layout.bmi_detail_fragment) {
 
             val format = SimpleDateFormat("yyyy/MM/dd")
             binding.dateText.text = format.format(myBody.date)
+
+            val bmi = ((myBody.weight / myBody.height.toFloat().pow(2)) * 100000).roundToLong() / 10.0
+            binding.bmiText.text =bmi.toString()
         }
 
         viewModel.errorMessage.observe(viewLifecycleOwner) { msg ->
